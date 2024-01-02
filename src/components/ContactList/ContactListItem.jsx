@@ -1,15 +1,20 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './ContactListItem.css';
 
-const ContactListItem = ({ id, name, number, onDeleteContact }) => {
-  return (
-    <li className="ContactListItem">
-      <span>
-        {name}: {number}
-      </span>
-      <button onClick={() => onDeleteContact(id)}>Delete</button>
-    </li>
-  );
-};
+class ContactListItem extends Component {
+  render() {
+    const { id, name, number, onDeleteContact } = this.props;
+    return (
+      <li className="ContactListItem">
+        <p>
+          {name}: {number}
+        </p>
+        <button onClick={() => onDeleteContact(id)} type="button">
+          Delete
+        </button>
+      </li>
+    );
+  }
+}
 
 export default ContactListItem;
